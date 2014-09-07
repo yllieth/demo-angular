@@ -1,0 +1,123 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo angular</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/css/foundation.min.css">
+  </head>
+  <body ng-app="demoAngularApp">
+    <div class="container">
+			
+			<div class="row">
+				<h1>Demo AngularJS</h1>
+			</div>
+
+      <div ng-controller="MainCtrl">
+				<div class="row">
+					<div class="columns large-6 medium-6">
+						<div class="panel">
+							<h3>Saisie</h3>
+							
+							<!-- Nom -->
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Nom</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" ng-model="new.lastname" required="required">
+								</div>
+							</div>
+							
+							<!-- Prénom -->
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Prénom</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" ng-model="new.firstname" required="required">
+								</div>
+							</div>
+							
+							<!-- Société -->
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Société</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" ng-model="new.company">
+								</div>
+							</div>
+							
+							<div class="row collapse">
+								<button class="expand radius" ng-click="add()">Enregistrer</button>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					
+					<div class="columns large-6 medium-6">
+						<div class="panel">
+							<h3>Interrogation</h3>
+							
+							<!-- Nom -->
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Recherche</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="search" ng-model="search" autofocus="true">
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="columns">
+									<table width="100%">
+										<tr>
+											<th>Nom</th>
+											<th>Prénom</th>
+											<th>Company</th>
+										</tr>
+										<tr ng-repeat="client in list | filter: search">
+											<td>{{ client.lastname | uppercase }}</td>
+											<td>{{ client.firstname }}</td>
+											<td>{{ client.company }}</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="row">
+					<div class="columns">
+						<div class="panel">
+							<h3>Base de donnée</h3>
+
+							<table width="100%">
+								<tr>
+									<th>Nom</th>
+									<th>Prénom</th>
+									<th>Company</th>
+								</tr>
+
+								<tr ng-repeat="client in list">
+									<td>{{ client.lastname | uppercase }}</td>
+									<td>{{ client.firstname }}</td>
+									<td>{{ client.company }}</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>
