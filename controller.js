@@ -12,6 +12,8 @@ angular.module('demoAngularApp')
     ];
     
     $scope.add = function() {
+      var added = {firstname: $scope.new.firstname, lastname: $scope.new.lastname, company: $scope.new.company};
       $scope.list.push($scope.new);
+      $scope.new = {};
     };
   });
